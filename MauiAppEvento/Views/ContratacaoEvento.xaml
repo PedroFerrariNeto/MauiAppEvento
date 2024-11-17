@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEvento.Views.ContratacaoEvento"
+             Title="ContratacaoEvento"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource OffBlack}">
+    
+    <VerticalStackLayout VerticalOptions="CenterAndExpand"
+                         Padding="10"
+                         Margin="10">
+        
+        <Label 
+            Text="Contação de Eventos"
+            FontFamily="NotoS" 
+            FontSize="30"
+            TextColor="Coral"
+            HorizontalOptions="CenterAndExpand"/>
+
+        <Frame Padding="10">
+
+            <VerticalStackLayout>
+                <Label Text="Digite o nome do Evento:"
+                       HorizontalOptions="CenterAndExpand"
+                       Margin="10"/>
+
+                <Entry x:Name="txt_evento"
+                       Placeholder="Digite o nome do evento" 
+                       PlaceholderColor="{StaticResource Gray600}"/>
+
+                <Frame Margin="10">
+                    <VerticalStackLayout>
+                        <Label Text="Data de início:"
+                               HorizontalOptions="CenterAndExpand"/>
+
+                        <DatePicker HorizontalOptions="CenterAndExpand"
+                                    x:Name="dtpck_inicio"
+                                    Format="dd/MM/yyyy"/>
+                        
+
+
+                        <Label Text="Data de Término:"
+                               HorizontalOptions="CenterAndExpand"/>
+                        
+                        <DatePicker HorizontalOptions="CenterAndExpand"
+                                    x:Name="dtpck_termino"
+                                    Format="dd/MM/yyyy"/>
+                        
+
+
+                    </VerticalStackLayout>                    
+                </Frame>
+                <Grid RowDefinitions="Auto"
+                      ColumnDefinitions="*, *, *">
+                    <Label Text="Número de Participantes:"
+                           Grid.Row="0" Grid.Column="0"/>
+
+                    <Label Grid.Row="0" Grid.Column="1"
+                           TextColor="Coral"
+                           Text="{Binding Value}"
+                           BindingContext="{x:Reference stp_participantes}"/>
+
+                    <Stepper Grid.Row="0"
+                             Grid.Column="2"
+                             x:Name="stp_participantes"/>
+                </Grid>
+
+                <Label HorizontalOptions="CenterAndExpand"
+                       Margin="10" 
+                       Text="Local do Evento:"/>
+
+                <Entry Margin="10" x:Name="txt_local" 
+                       Placeholder="Digite o local do evento" 
+                       PlaceholderColor="{StaticResource Gray600}"/>
+
+            </VerticalStackLayout>
+            
+        </Frame>
+        
+        <Button Text="Avançar" Clicked="Button_Clicked" 
+                HorizontalOptions="CenterAndExpand" 
+                BackgroundColor="Coral"
+                FontAttributes="Bold"/>
+        
+    </VerticalStackLayout>
+</ContentPage>

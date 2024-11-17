@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiAppEvento.Views.Eventocontratado"
+             Title="Eventocontratado"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource OffBlack}">
+    
+    <VerticalStackLayout>        
+        <Label 
+            Text="Evento Contratado"
+            FontFamily="NotoS" 
+            FontSize="30"
+            TextColor="Coral"
+            HorizontalOptions="CenterAndExpand" />
+
+        <Frame>
+            <Grid RowDefinitions="*, *, *, *, *, *, *" ColumnDefinitions="*, *">
+                
+                <Label Grid.Row="0" Grid.Column="0" Text="Nome do seu evento:"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="{Binding Descricao}" TextColor="Coral"/>
+                
+                <Label Grid.Row="2" Grid.Column="0" Text="Data Início:"/>
+                <Label Grid.Row="2" Grid.Column="1" 
+                       Text="{Binding DataInicio, StringFormat='{}{0:dd/MM/yyyy}'}" 
+                       TextColor="Coral"/>
+                
+                <Label Grid.Row="3" Grid.Column="0" Text="Data Término:"/>
+                <Label Grid.Row="3" Grid.Column="1" 
+                       Text="{Binding DataTermino, StringFormat='{}{0:dd/MM/yyyy}'}"
+                       TextColor="Coral"/>
+                
+                <Label Grid.Row="4" Grid.Column="0" Text="Participantes: "/>
+                <Label Grid.Row="4" Grid.Column="1" 
+                       Text="{Binding QntParticipantes}"
+                       TextColor="Coral"/>
+
+                <Label Grid.Row="5" Grid.Column="0" Text="Local do Evento: "/>
+                <Label Grid.Row="5" Grid.Column="1" 
+                       Text="{Binding Local}"
+                       TextColor="Coral"/>
+
+                <Label Grid.Row="6" Grid.Column="0" Text="Custo do Evento:"/>
+                <Label Grid.Row="6" Grid.Column="1" 
+                       Text="{Binding CustoEvento, StringFormat='{}{0:c}'}"
+                       TextColor="Coral"/>
+            </Grid>
+            
+        </Frame>
+
+        <Button Text="Voltar" Background="Coral" 
+                HorizontalOptions="CenterAndExpand" 
+                Clicked="Button_Clicked"/>
+    </VerticalStackLayout>
+</ContentPage>
