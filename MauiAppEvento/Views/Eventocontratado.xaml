@@ -6,7 +6,7 @@
              NavigationPage.HasNavigationBar="False"
              BackgroundColor="{StaticResource OffBlack}">
     
-    <VerticalStackLayout>        
+    <VerticalStackLayout VerticalOptions="CenterAndExpand">        
         <Label 
             Text="Evento Contratado"
             FontFamily="NotoS" 
@@ -15,35 +15,41 @@
             HorizontalOptions="CenterAndExpand" />
 
         <Frame>
-            <Grid RowDefinitions="*, *, *, *, *, *, *" ColumnDefinitions="*, *">
+            <Grid RowDefinitions="*, *, *, *, *, *, *, *, *, *, *" ColumnDefinitions="*, *">
                 
                 <Label Grid.Row="0" Grid.Column="0" Text="Nome do seu evento:"/>
                 <Label Grid.Row="0" Grid.Column="1" Text="{Binding Descricao}" TextColor="Coral"/>
-                
+                <Label Grid.Row="1" Grid.Column="1" Text=""/>
+
                 <Label Grid.Row="2" Grid.Column="0" Text="Data Início:"/>
                 <Label Grid.Row="2" Grid.Column="1" 
                        Text="{Binding DataInicio, StringFormat='{}{0:dd/MM/yyyy}'}" 
                        TextColor="Coral"/>
-                
-                <Label Grid.Row="3" Grid.Column="0" Text="Data Término:"/>
-                <Label Grid.Row="3" Grid.Column="1" 
+                                
+                <Label Grid.Row="4" Grid.Column="0" Text="Data Término:"/>
+                <Label Grid.Row="4" Grid.Column="1" 
                        Text="{Binding DataTermino, StringFormat='{}{0:dd/MM/yyyy}'}"
                        TextColor="Coral"/>
+                <Label Grid.Row="5" Grid.Column="1" Text=""/>
                 
-                <Label Grid.Row="4" Grid.Column="0" Text="Participantes: "/>
-                <Label Grid.Row="4" Grid.Column="1" 
+                <Label Grid.Row="6" Grid.Column="0" Text="Participantes: "/>
+                <Label Grid.Row="6" Grid.Column="1" 
                        Text="{Binding QntParticipantes}"
                        TextColor="Coral"/>
+                <Label Grid.Row="7" Grid.Column="1" Text=""/>
 
-                <Label Grid.Row="5" Grid.Column="0" Text="Local do Evento: "/>
-                <Label Grid.Row="5" Grid.Column="1" 
+                <Label Grid.Row="8" Grid.Column="0" Text="Local do Evento: "/>
+                <Label Grid.Row="8" Grid.Column="1" 
                        Text="{Binding Local}"
                        TextColor="Coral"/>
+                <Label Grid.Row="9" Grid.Column="1" Text=""/>
 
-                <Label Grid.Row="6" Grid.Column="0" Text="Custo do Evento:"/>
-                <Label Grid.Row="6" Grid.Column="1" 
+                <Label Grid.Row="10" Grid.Column="0" Text="Custo do Evento:"/>
+                <Label Grid.Row="10" Grid.Column="1" 
                        Text="{Binding CustoEvento, StringFormat='{}{0:c}'}"
                        TextColor="Coral"/>
+
+                
             </Grid>
             
         </Frame>

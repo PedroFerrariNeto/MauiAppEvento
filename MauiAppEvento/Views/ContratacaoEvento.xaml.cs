@@ -9,7 +9,9 @@ public partial class ContratacaoEvento : ContentPage
 		InitializeComponent();
 
         dtpck_inicio.MinimumDate = DateTime.Now;
-        dtpck_termino.MinimumDate = dtpck_inicio.Date;
+        dtpck_inicio.MaximumDate = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+
+        dtpck_termino.MinimumDate = dtpck_inicio.Date.AddDays(1);
         dtpck_termino.MaximumDate = dtpck_termino.Date.AddDays(6);
     }
 
@@ -26,7 +28,10 @@ public partial class ContratacaoEvento : ContentPage
                 Local = txt_local.Text,
             };
 
-            await Navigation.PushAsync(new Eventocontratado() { BindingContext = h });
+            await Navigation.PushAsync(new Eventocontratado() 
+            { 
+                BindingContext = h 
+            });
         }
         catch (Exception ex)
         {
@@ -39,10 +44,10 @@ public partial class ContratacaoEvento : ContentPage
     {
         DatePicker elemento = sender as DatePicker;
 
-        DateTime data_selecionada_checkin = elemento.Date;
+        DateTime data_selecionada = elemento.Date;
 
-        dtpck_inicio.MinimumDate = data_selecionada_checkin.Date;
-        dtpck_termino.MaximumDate = data_selecionada_checkin.Date.AddDays(6);
+        dtpck_inicio.MinimumDate = data_selecionada.AddDays(1);
+        dtpck_termino.MaximumDate = data_selecionada.Date.AddDays(6);
     }
 
 }
